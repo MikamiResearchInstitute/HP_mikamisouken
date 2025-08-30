@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>合同会社三上総合研究所 | ITコンサルティング・教育・運用設計</title>
+  <meta name="description" content="合同会社三上総合研究所は、IT/業務改善コンサルティング、運用設計、データ処理の自動化、教育・研修を通じて中小企業の生産性向上を支援します。" />
+  <!-- ▼ ここは公開後に自社ドメインに必ず置き換え（例: https://mikami-consult.jp） -->
+  <meta property="og:url" content="https://example.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="合同会社三上総合研究所" />
+  <meta property="og:description" content="IT/業務改善コンサルティング・教育・運用設計" />
+  <meta property="og:image" content="https://example.com/ogp.png" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230c4a6e'/%3E%3Ctext x='50' y='58' font-size='52' text-anchor='middle' fill='white' font-family='system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial'%3EM%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --bg:#0b1020;          /* 背景ダークネイビー */
+      --card:#0f172a;        /* カード濃紺 */
+      --ink:#e5e7eb;         /* 文字淡 */
+      --muted:#94a3b8;       /* 補助文字 */
+      --brand:#22d3ee;       /* アクセント */
+      --brand2:#60a5fa;      /* セカンダリ */
+      --ok:#10b981;          /* 成功 */
+      --warn:#f59e0b;        /* 注意 */
+      --err:#ef4444;         /* エラー */
+      --ring: 0 0 0 6px rgba(34,211,238,.15);
+      --radius: 18px;
+      --radius-lg:24px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --shadow-sm: 0 6px 18px rgba(0,0,0,.25);
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      background:
+        radial-gradient(1000px 600px at 10% -10%, rgba(34,211,238,.12), transparent 60%),
+        radial-gradient(1000px 600px at 110% 0%, rgba(96,165,250,.10), transparent 60%),
+        var(--bg);
+      color: var(--ink);
+      line-height:1.75;
+      letter-spacing:.02em;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{opacity:.9}
+
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(120%) blur(10px);
+      background: rgba(11,16,32,.6);
+      border-bottom:1px solid rgba(148,163,184,.15);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:36px; height:36px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#081020; font-weight:800}
+    .brand h1{font-size:16px; margin:0; letter-spacing:.06em}
+    nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0}
+    nav a{color:var(--ink); opacity:.85}
+    nav a:hover{color:white}
+
+    /* Hero */
+    .hero{padding:64px 0 40px}
+    .hero .card{background: linear-gradient(180deg, rgba(15,23,42,.9), rgba(15,23,42,.85)); border:1px solid rgba(148,163,184,.15); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow:hidden}
+    .hero-inner{display:grid; grid-template-columns:1.1fr .9fr; gap:30px; padding:34px}
+    .kicker{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; font-size:12px; color:#0b1020; background:linear-gradient(90deg, var(--brand), var(--brand2)); border-radius:999px; font-weight:700}
+    .hero h2{font-size:34px; line-height:1.25; margin:14px 0 8px}
+    .hero p{color:var(--muted); margin:0 0 18px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:700; border:1px solid rgba(148,163,184,.2); background:#0f172a; color:#e6f7fa}
+    .btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand2)); color:#07111a; border:none}
+    .btn:focus{outline:none; box-shadow:var(--ring)}
+    .hero-aside{border-left:1px dashed rgba(148,163,184,.2); padding-left:24px}
+    .badge{display:inline-grid; grid-template-columns:auto auto; gap:6px 10px; align-items:center; background:#0c132b; border:1px solid rgba(148,163,184,.2); padding:10px 12px; border-radius:12px; margin-bottom:10px}
+    .badge strong{white-space:nowrap}
+
+    /* Sections */
+    section{padding:44px 0}
+    h3{font-size:22px; margin:0 0 16px}
+    .grid{display:grid; gap:18px}
+    .two{grid-template-columns:1fr 1fr}
+    .three{grid-template-columns:repeat(3, 1fr)}
+    .card{background:rgba(15,23,42,.9); border:1px solid rgba(148,163,184,.15); border-radius:var(--radius); padding:20px}
+    .mute{color:var(--muted)}
+    .pill{display:inline-block; padding:6px 10px; border:1px solid rgba(148,163,184,.3); border-radius:999px; font-size:12px; color:var(--muted)}
+
+    /* Company table */
+    table{width:100%; border-collapse:collapse}
+    th, td{padding:10px 12px; border-bottom:1px dashed rgba(148,163,184,.2); text-align:left; vertical-align:top}
+    th{white-space:nowrap; color:#cbd5e1}
+
+    /* Contact */
+    form{display:grid; gap:12px}
+    input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(148,163,184,.3); background:#0b1226; color:var(--ink)}
+    input:focus, textarea:focus{outline:none; box-shadow:var(--ring); border-color:transparent}
+    textarea{min-height:140px; resize:vertical}
+    .help{font-size:12px; color:var(--muted)}
+
+    /* Footer */
+    footer{padding:28px 0 36px; color:var(--muted); border-top:1px solid rgba(148,163,184,.15)}
+
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr; padding:22px}
+      .hero-aside{border-left:none; padding-left:0}
+      .two{grid-template-columns:1fr}
+      .three{grid-template-columns:1fr}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "合同会社三上総合研究所",
+    "legalName": "合同会社三上総合研究所",
+    "description": "IT/業務改善コンサルティング、運用設計、データ処理の自動化、教育・研修の提供",
+    "url": "https://example.com",
+    "logo": "https://example.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "JP",
+      "addressRegion": "大阪府",
+      "addressLocality": "大阪市北区梅田1丁目2番2号 大阪駅前第2ビル12-12"
+    },
+    "foundingDate": "2025-07-30",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "info@example.com"
+    }]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo">MR</div>
+        <h1>合同会社三上総合研究所</h1>
+      </div>
+      <nav aria-label="主要ナビゲーション">
+        <ul>
+          <li><a href="#services">サービス</a></li>
+          <li><a href="#strengths">強み</a></li>
+          <li><a href="#works">実績</a></li>
+          <li><a href="#company">会社情報</a></li>
+          <li><a href="#policy">方針</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div class="card hero-inner">
+          <div>
+            <span class="kicker">ITコンサルティング / 教育</span>
+            <h2>考えれば、世界は続く。<br/>中小企業の現場に効く<span style="background:linear-gradient(90deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent">業務改善と自動化</span>を。</h2>
+            <p>10万人規模のデータ処理と運用現場の再設計で培ったノウハウをもとに、
+              仕組み化・標準化・自動化をスピーディに実装。現場が自走できるまで伴走します。</p>
+            <div class="cta">
+              <a class="btn primary" href="#contact">無料相談・お問い合わせ</a>
+              <a class="btn" href="#company">会社情報を確認</a>
+            </div>
+          </div>
+          <aside class="hero-aside">
+            <div class="badge">
+              <span class="pill">主な提供領域</span>
+              <strong>ITコンサルティング / 運用設計 / データ処理 / 自動化 / 教育</strong>
+              <span class="pill">所在地</span>
+              <strong>大阪市北区（全国オンライン対応）</strong>
+            </div>
+            <p class="mute" style="margin:0">※守秘義務のため案件名は非公開。実績は匿名の定量効果を掲載しています。</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="wrap">
+        <h3>サービス</h3>
+        <div class="grid two">
+          <div class="card">
+            <h4>IT・業務改善コンサルティング</h4>
+            <p class="mute">現状分析から課題抽出、改善計画の策定、実装まで伴走。業務の標準化とガバナンス設計をリードします。</p>
+            <ul>
+              <li>運用プロセス再設計（標準化・システム導入）</li>
+              <li>大規模データ処理設計（10万人規模対応の実績）</li>
+              <li>アクセス管理・IDプロビジョニング設計</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>自動化・システム実装</h4>
+            <p class="mute">EUCから業務システムまで、現場に合う最適解で素早く実装します。</p>
+            <ul>
+              <li>自動化</li>
+              <li>アプリ設計・カスタマイズ</li>
+              <li>処理基盤の整備</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>教育・研修・講師</h4>
+            <p class="mute">現場メンバーが“自力で回せる”状態までスキル移転。教材作成からOJTまで対応。</p>
+            <ul>
+              <li>業務自動化トレーニング</li>
+              <li>運用設計・標準化の教育プログラム</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>情報提供・コンテンツ制作 / セミナー運営</h4>
+            <p class="mute">ドキュメント整備、社内標準の雛形整備、セミナー・勉強会の企画運営まで。</p>
+            <ul>
+              <li>ガイドライン/チェックリスト/テンプレート整備</li>
+              <li>ウェビナー・勉強会の企画・運営</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strengths -->
+    <section id="strengths">
+      <div class="wrap">
+        <h3>当社の強み</h3>
+        <div class="grid three">
+          <div class="card">
+            <h4>現場密着の実務力</h4>
+            <p class="mute">要件定義〜設計〜実装〜運用定着まで一気通貫。現場が回ることに徹底フォーカス。</p>
+          </div>
+          <div class="card">
+            <h4>大規模データ処理の経験</h4>
+            <p class="mute">10万人規模の人事・IDデータ処理を複数実績。速度・正確性・監査対応まで見据えます。</p>
+          </div>
+          <div class="card">
+            <h4>自動化×標準化で継続改善</h4>
+            <p class="mute">属人業務を標準化し、自動化でミスと工数を削減。教育と仕組みで再現性を確保。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works -->
+    <section id="works">
+      <div class="wrap">
+        <h3>実績（匿名・要約）</h3>
+        <div class="grid two">
+          <div class="card">
+            <h4>機器管理運用 立て直し（10名体制）</h4>
+            <ul>
+              <li>運用再設計・標準化・教育で <strong>工数10%超削減</strong></li>
+              <li>アプリ改修・運用プロセス整備</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>人事データ処理システム 改修</h4>
+            <ul>
+              <li>手動作業を自動化し <strong>工数50%以上削減</strong></li>
+              <li>運用体制を2名→1名へスリム化</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>大規模データ処理 新規構築（個別案件）</h4>
+            <ul>
+              <li>再設計し <strong>工数70%削減</strong></li>
+              <li>10万人規模の処理を安定運用へ</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>炎上案件の鎮静化・教育</h4>
+            <ul>
+              <li>要件整理〜優先度見直しで正常化</li>
+              <li>エンジニア教育：<strong>自走可能レベル</strong>まで育成</li>
+            </ul>
+          </div>
+        </div>
+        <p class="mute" style="margin-top:10px">※契約上、社名は非公開です。</p>
+      </div>
+    </section>
+
+    <!-- Company -->
+    <section id="company">
+      <div class="wrap">
+        <h3>会社情報</h3>
+        <div class="card">
+          <table>
+            <tbody>
+              <tr><th>商号</th><td>合同会社三上総合研究所（Mikami Research Institute, LLC）</td></tr>
+              <tr><th>代表者</th><td>代表社員 三上 努</td></tr>
+              <tr><th>本店所在地</th><td>大阪府大阪市北区梅田1丁目2番2号 大阪駅前第2ビル12-12</td></tr>
+              <tr><th>設立</th><td>2025年7月（登記簿に基づく日付を記載）</td></tr>
+              <tr><th>資本金</th><td>2,000,000円</td></tr>
+              <tr><th>事業内容</th><td>
+                IT/業務改善コンサルティング、教育・研修、情報提供サービス、セミナー企画運営、コンテンツ制作ほか附帯関連業務
+              </td></tr>
+              <tr><th>法人番号</th><td>（記載例）1234567890123 ※実番号に置換</td></tr>
+              <tr><th>適格請求書発行事業者</th><td>登録番号：準備中</td></tr>
+              <tr><th>取引銀行</th><td>開設手続中</td></tr>
+              <tr><th>連絡先</th><td>メール：<a href="mailto:info@example.com">info@example.com</a>　/　電話：050-XXXX-XXXX</td></tr>
+              <tr><th>所在地（地図）</th><td><a href="https://maps.google.com" target="_blank" rel="noopener">Googleマップで表示</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Policies -->
+    <section id="policy">
+      <div class="wrap">
+        <div class="grid two">
+          <div class="card">
+            <h4>プライバシーポリシー（要約）</h4>
+            <p class="mute">当社は、業務遂行に必要な範囲で個人情報を取得・利用し、目的外利用を行いません。安全管理措置を講じ、第三者提供は法令に基づく場合を除き行いません。開示等のご請求はお問い合わせ窓口まで。</p>
+            <ul>
+              <li>利用目的：お問い合わせ対応、契約・業務連絡、サービスの提供・改善 ほか</li>
+              <li>第三者提供：法令に基づく場合を除きなし</li>
+              <li>委託：必要に応じて委託（委託先の適正管理を実施）</li>
+              <li>安全管理：アクセス制御、ログ管理、暗号化、最小権限</li>
+              <li>開示等請求：<a href="#contact">お問い合わせ窓口</a>へ</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>反社会的勢力排除について</h4>
+            <p class="mute">当社は反社会的勢力との一切の関係を遮断します。該当が判明した場合は、契約の締結・履行を拒否または解除し、必要な法的措置を講じます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="wrap">
+        <h3>お問い合わせ</h3>
+        <div class="grid two">
+          <div class="card">
+            <!-- ▼ シンプル送信先（Formspree など）に差し替え推奨。action をご自身のエンドポイントへ -->
+            <form action="https://formspree.io/f/xxxxxx" method="POST">
+              <label>お名前（必須）<br/>
+                <input type="text" name="name" required autocomplete="name" />
+              </label>
+              <label>メールアドレス（必須）<br/>
+                <input type="email" name="email" required autocomplete="email" />
+              </label>
+              <label>ご用件（任意）<br/>
+                <input type="text" name="subject" placeholder="例：無料相談の希望" />
+              </label>
+              <label>内容（必須）<br/>
+                <textarea name="message" required placeholder="ご相談内容やご希望の連絡手段・時間帯など"></textarea>
+              </label>
+              <button class="btn primary" type="submit">送信する</button>
+              <p class="help">※ 送信によりプライバシーポリシーに同意したものとみなします。</p>
+            </form>
+          </div>
+          <div class="card">
+            <h4>メール・電話でのご連絡</h4>
+            <p>メール：<a href="mailto:info@example.com">info@example.com</a><br/>電話：050-XXXX-XXXX（平日 10:00-17:00）</p>
+            <p class="mute">※ ご相談はオンライン（全国対応）／大阪市内は訪問可（要調整）。</p>
+            <h4>書類送付先</h4>
+            <p>〒（郵便番号を記載）<br/>大阪府大阪市北区梅田1丁目2番2号 大阪駅前第2ビル12-12<br/>合同会社三上総合研究所 宛</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+        <small>© <span id="y"></span> 合同会社三上総合研究所</small>
+        <small><a href="#policy">プライバシーポリシー</a> / <a href="#company">会社情報</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 年号表示
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- ▼ 公開前チェックリスト（削除可）
+  1) og:url / og:image / JSON-LD の URL を自社ドメインに変更
+  2) メール info@example.com → 自社ドメインの代表アドレス（例：info@mikami-consult.jp）
+  3) 法人番号・郵便番号・電話番号・設立日を正確な値に更新
+  4) フォーム action を Formspree / Formrun / Googleフォーム等に差し替え
+  5) 実績の表記・数値に誤りがないか確認
+  6) 反社排除・プライバシーポリシーの運用体制（問い合わせ対応フロー等）を整備
+  7) robots.txt / サイトマップ（任意）
+  -->
+</body>
+</html>
